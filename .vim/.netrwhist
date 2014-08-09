@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/etc/service/mirrormaker-2'
+let g:netrw_dirhist_2='/home/aramesh/git/conviva_git/mdc/scripts/config/dev1-euwest1'
+let g:netrw_dirhist_3='/home/aramesh/git/conviva_git/mdc/scripts/config'
+let g:netrw_dirhist_4='/etc/zookeeper/conf'
+let g:netrw_dirhist_5='/home/aramesh/git/conviva_git/mdc/kafka_manager/config/dev1-euwest1'
+let g:netrw_dirhist_6='/home/aramesh/git/conviva_git/testapi/go'
+let g:netrw_dirhist_7='/home/aramesh/DQE_test'
+let g:netrw_dirhist_8='/home/aramesh/git/configuration-files/.oh-my-zsh'
