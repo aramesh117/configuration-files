@@ -5,9 +5,33 @@ alias d='du -sc'
 alias mvn='mvn -T 8'
 
 
+function checkmerge() {
+    /home/aramesh/git/conviva_git/scripts/checkmerge.py --from "$1" --to "$2" --user aramesh --onlyopen
+}
+
+function no_port() {
+    /home/aramesh/git/conviva_git/scripts/checkmerge.py --mark-no-port "$1"
+}
+
 function lcd() {
     cd "$2";
     ls "$1";
+}
+
+function sql1eng() {
+    printf "%s.sql1.eng.conviva.com" "$1"
+}
+
+function ssql1eng() {
+    ssh `sql1eng $1`
+}
+
+function sql1corp() {
+    printf "%s.sql1.corp.conviva.com" "$1"
+}
+
+function ssql1corp() {
+    ssh `sql1corp $1`
 }
 
 function grepf() {
@@ -16,6 +40,44 @@ function grepf() {
 
 function hdfs_exec() {
     sudo -u hdfs hadoop fs $@
+}
+
+function sjc() {
+    printf "sjc%s.sjc1.eng.conviva.com" "$1"
+}
+
+function prod() {
+    printf "%s.iad1.prod.conviva.com" "$1"
+}
+
+function staging() {
+    printf "%s.iad1.staging.conviva.com" "$1"
+}
+
+function euprod() {
+    printf "%s.eu-west-1.prod.conviva.com" "$1"
+}
+
+function ssjc() {
+    ssh `sjc $1`
+}
+
+function sprod() {
+    ssh `prod $1`
+}
+function sstaging() {
+    ssh root@`staging $1`
+}
+function seuprod() {
+    ssh `euprod $1`
+}
+
+function usprod() {
+    printf "%s.us-west-2.prod.conviva.com" "$1"
+}
+
+function susprod() {
+    ssh `usprod $1`
 }
 
 function psgrep() {
