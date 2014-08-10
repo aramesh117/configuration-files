@@ -78,13 +78,12 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-
 
 # Other sources
 source ~/.aliases
 source ~/.vars
 source /usr/share/autojump/autojump.zsh
+source ~/.zshrc_settings
 
 # Bind to vim mode
 bindkey -v

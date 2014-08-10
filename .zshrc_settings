@@ -1,0 +1,7 @@
+# Set mmv to an extension of mv
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
+# Enable powerful globbing 
+setopt extendedglob
+setopt noflowcontrol
