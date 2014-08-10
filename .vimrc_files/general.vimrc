@@ -15,6 +15,4 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-imap <C-q> <Esc>
-nnoremap <Esc> <NOP>
 cmap w!! w !sudo tee > /dev/null %
