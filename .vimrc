@@ -207,6 +207,11 @@ Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Bundle 'Valloric/YouCompleteMe'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you vimgrep after the selected text

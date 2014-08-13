@@ -84,6 +84,7 @@ source ~/.aliases
 source ~/.vars
 source /usr/share/autojump/autojump.zsh
 source ~/.zshrc_settings
+source /etc/zsh_command_not_found
 
 # Bind to vim mode
 bindkey -v

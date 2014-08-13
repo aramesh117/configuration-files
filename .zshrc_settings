@@ -5,3 +5,4 @@ alias mmv='noglob zmv -W'
 # Enable powerful globbing 
 setopt extendedglob
 setopt noflowcontrol
+setopt auto_cd
