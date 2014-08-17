@@ -6,3 +6,4 @@ alias mmv='noglob zmv -W'
 setopt extendedglob
 setopt noflowcontrol
 setopt auto_cd
+setopt correct
