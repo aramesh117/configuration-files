@@ -164,7 +164,7 @@ set tabpagemax=15
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ (%l,%c,%p)
+set statusline=\ %{fugitive#statusline()}\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ (%l,%c,%p)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -355,3 +355,10 @@ vnoremap <silent> # :<C-U>
 " Input gg=G to format an xml document.
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 set maxmempattern=10000
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if &diff
+    colorscheme shine
+endif
