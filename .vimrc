@@ -50,8 +50,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
-
+if &diff
+    colorscheme shine
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -164,7 +165,7 @@ set tabpagemax=15
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{fugitive#statusline()}\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ (%l,%c,%p)
+set statusline=\ %{fugitive#statusline()}\ %F%m%r%h%Y\ %w%=\ (%l,%c,%p)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
