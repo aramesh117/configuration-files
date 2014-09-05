@@ -16,5 +16,3 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 cmap w!! w !sudo tee > /dev/null %
-
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
