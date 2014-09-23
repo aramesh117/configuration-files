@@ -50,9 +50,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-if &diff
-    colorscheme shine
-endif
+"if &diff
+"    colorscheme evening
+"endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -360,6 +360,9 @@ set maxmempattern=10000
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if &diff
-    colorscheme shine
+"if &diff
+"    colorscheme shine
+"endif
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
 endif
