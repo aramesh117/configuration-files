@@ -31,11 +31,12 @@ source ~/.vimrc_files/gundo.vimrc
 " Enable syntax highlighting
 syntax enable
 colorscheme default
-if has('gui_running')
-    set background=dark
-else
-    set background=light
-endif
+set background=light
+"if has('gui_running')
+"    set background=dark
+"else
+"    set background=light
+"endif
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -50,9 +51,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-"if &diff
-"    colorscheme evening
-"endif
+if &diff
+    colorscheme murphy
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -82,7 +82,11 @@ export ARCHFLAGS="-arch x86_64"
 # Other sources
 source ~/.aliases
 source ~/.vars
-source /usr/share/autojump/autojump.zsh
+
+# Autojump
+[[ -s /home/aramesh/.autojump/etc/profile.d/autojump.sh ]] && source /home/aramesh/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+
 source ~/.zshrc_settings
 source /etc/zsh_command_not_found
 
@@ -103,13 +107,3 @@ bindkey '^[[5~' vi-backward-blank-word # Page Up
 bindkey '^[[6~' vi-forward-blank-word  # Page Down
 
 # Start from home directory.
-cd
-if [ "$COLORTERM" = "gnome-terminal" ]
-then
-    TERM=xterm-256color
-else
-    if [ "$COLORTERM" = "rxvt-xpm" ]
-    then
-        TERM=rxvt-256color
-    fi
-fi

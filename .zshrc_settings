@@ -7,3 +7,8 @@ setopt extendedglob
 setopt noflowcontrol
 setopt auto_cd
 setopt correct
+
+# Enable directory history
+DIRSTACKSIZE=8
+setopt autopushd pushdminus pushdsilent pushdtohome
+alias dh='dirs -v'
