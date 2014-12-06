@@ -107,3 +107,15 @@ bindkey '^[[5~' vi-backward-blank-word # Page Up
 bindkey '^[[6~' vi-forward-blank-word  # Page Down
 
 # Start from home directory.
+if [ "$COLORTERM" = "gnome-terminal" ]
+then
+    TERM=xterm-256color
+else
+    if [ "$COLORTERM" = "rxvt-xpm" ]
+    then
+        TERM=rxvt-256color
+    fi
+fi
+#xset r rate 200 60
+
+cd $CGIT
