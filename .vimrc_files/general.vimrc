@@ -16,3 +16,7 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 cmap w!! w !sudo tee > /dev/null %
+
+" try ;; -> ESC
+inoremap ;; <Esc>
+vnoremap ;; <Esc>
