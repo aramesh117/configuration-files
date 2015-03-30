@@ -38,6 +38,10 @@ Plugin 'Syntastic'
 
 " Vim-Scala
 Plugin 'derekwyatt/vim-scala'
+
+" Fugitive
+Plugin 'fugitive.vim'
+
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -160,6 +164,7 @@ set t_Co=256 " Number of colors.
 let g:airline#extensions#tabline#enabled=1
 " Enable powerline fonts and symbols in airline.
 let g:airline_powerline_fonts=1
+let g:airline_theme='murmur'
 "}}}
 """""""""""""""""""""""""
 " Splits
