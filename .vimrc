@@ -25,6 +25,8 @@ source ~/.vimrc_files/ui.vimrc
 
 source ~/.vimrc_files/gundo.vimrc
 
+source ~/.vimrc_files/syntastic.vimrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -367,3 +369,24 @@ set maxmempattern=10000
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
+
+" Git commit syntax
+autocmd Filetype gitcommit setlocal spell textwidth=72
+" " Underline spelling errors
+highlight SpellBad ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Haskell
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This assumes that ghc is in your path, if it is not, or you
+" wish to use a specific version of ghc, then please change
+" the ghc below to a full path to the correct one
+au BufEnter *.hs compiler ghc
+
+" For this section both of these should be set to your
+" browser and ghc of choice, I used the following
+" two vim lines to get those paths:
+" :r!which google-chrome
+" :r!which ghc
+let g:haddock_browser = "/usr/bin/google-chrome"
+let g:ghc = "/usr/local/bin/ghc"
