@@ -1,392 +1,165 @@
-" Sections:
-"    -> Vundle
-"    -> General
-"    -> Gundo
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Misc
-"    -> Helper functions
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""
+" Vundle Initialization
+"""""""""""""""""""""""""" 
+" {{{
+set nocompatible " Disable attempts to make vim backwards compatible with vi.
+filetype off " Disable temporarily for Vundle.
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-execute pathogen#infect()
+" This is the list of plugins.
 
-source ~/.vimrc_files/vundle.vimrc
+" This is the Vundle package, which can be found on GitHub.
+" For GitHub repos, you specify plugins using the
+" 'user/repository' format
+Plugin 'gmarik/vundle'
 
-source ~/.vimrc_files/general.vimrc
+" We could also add repositories with a ".git" extension
+Plugin 'scrooloose/nerdtree.git'
 
-source ~/.vimrc_files/ui.vimrc
+" To get plugins from Vim Scripts, you can reference the plugin
+" by name as it appears on the site
+Plugin 'Buffergator'
 
-source ~/.vimrc_files/gundo.vimrc
+" The Gundo plugin.
+Plugin 'sjl/gundo.vim.git'
 
-source ~/.vimrc_files/syntastic.vimrc
+" The Silver Searcher.
+Plugin 'rking/ag.vim'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-colorscheme default
-set background=light
-"if has('gui_running')
-"    set background=dark
-"else
-"    set background=light
-"endif
+" Fuzzy file name searching.
+Plugin 'ctrlp.vim'
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+" Airline
+Plugin 'bling/vim-airline'
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-if &diff
-    colorscheme murphy
-endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
+" Syntastic
+Plugin 'Syntastic'
+" Now we can turn our filetype functionality back on
+filetype plugin indent on
+" }}}
+"""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""
+" {{{
+syntax enable " Enable syntax processing.
+syntax on " Enable syntax display.
 set noswapfile
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs ;)
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-
-" Linebreak on 500 characters
-"set lbr
-"set tw=200
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
-
-
-""""""""""""""""""""""""""""""
-" => Insert mode related
-""""""""""""""""""""""""""""""
-"noremap jk <Esc>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Close the current buffer
-map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
-map <C-W>\| :vsplit<Enter>
-map <C-W>- :split<Enter>
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Specify the behavior when switching between buffers
-try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
-catch
-endtry
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-" Remember info about open buffers on close
-set viminfo^=%
-
-set tabpagemax=15
-
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line
-set statusline=\ %{fugitive#statusline()}\ %F%m%r%h%Y\ %w%=\ (%l,%c,%p)
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-" map 0 ^
-
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Snipmate
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-
-" Optional:
-Bundle "honza/vim-snippets"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Bundle 'Valloric/YouCompleteMe'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimgrep searching and cope displaying
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
-
-" Open vimgrep and put the cursor in the right position
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
-" Vimgreps in the current file
-map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with vimgrep, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
-
-set number
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-    set norelativenumber
-  else
-    set relativenumber
-    set number
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-set textwidth=80
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
-
-function! VisualSelection(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
-
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
-function ShowSpaces(...)
-  let @/='\v(\s+$)|( +\ze\t)'
-  let oldhlsearch=&hlsearch
-  if !a:0
-    let &hlsearch=!&hlsearch
-  else
-    let &hlsearch=a:1
-  end
-  return oldhlsearch
-endfunction
-
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-" Input gg=G to format an xml document.
-au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-set maxmempattern=10000
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"if &diff
-"    colorscheme shine
-"endif
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
-
-" Git commit syntax
-autocmd Filetype gitcommit setlocal spell textwidth=72
-" " Underline spelling errors
-highlight SpellBad ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Haskell
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" This assumes that ghc is in your path, if it is not, or you
-" wish to use a specific version of ghc, then please change
-" the ghc below to a full path to the correct one
-au BufEnter *.hs compiler ghc
-
-" For this section both of these should be set to your
-" browser and ghc of choice, I used the following
-" two vim lines to get those paths:
-" :r!which google-chrome
-" :r!which ghc
-let g:haddock_browser = "/usr/bin/google-chrome"
-let g:ghc = "/usr/local/bin/ghc"
+" }}}
+""""""""""""""""""""""""""
+" Leader
+""""""""""""""""""""""""""
+" {{{
+let mapleader="," " Leader is comma.
+" }}}
+""""""""""""""""""""""""""
+" Spaces and Tabs
+""""""""""""""""""""""""""
+" {{{
+set tabstop=4 " The number of spaces that <Tab> represents visually.
+set softtabstop=4 " The number of spaces <Tab> when editing.
+set expandtab " Whether to expand a <Tab> into spaces while editing.
+" }}}
+""""""""""""""""""""""""""
+" UI
+""""""""""""""""""""""""""
+" {{{
+set number " Show line numbers.
+set showcmd " Show the last executed command in bottom right.
+" set cursorline "Highlight current line.
+set wildmenu " Turn on menu for autocompletion.
+set lazyredraw " Redraw screen only when needed.
+set showmatch " Show matching parentheses.
+" }}}
+""""""""""""""""""""""""""
+" Search
+""""""""""""""""""""""""""
+" {{{
+set incsearch " Search as characters are entered.
+set hlsearch " Highlight matches.
+" Turn off search highlight after a previous match.
+nnoremap <leader><space> :noh<CR> 
+" }}}
+""""""""""""""""""""""""""
+" Folding
+""""""""""""""""""""""""""
+" {{{
+set foldenable " Enable folding.
+set foldlevelstart=10 " Open up to 10-deep folds by default.
+set foldnestmax=10 " 10 nested fold max.
+" space open/closes folds
+" nnoremap <space> za
+set modelines=1 " This tells vim that it should look for just one 'modeline' set command.
+" }}}
+""""""""""""""""""""""""""
+" Movement
+""""""""""""""""""""""""""
+" {{{
+" Move vertically by visual line in vim.
+nnoremap j gj
+nnoremap k gk
+
+" Bind B to ^.
+nnoremap B ^
+" Highlight last inserted text
+nnoremap gV `[v`]
+
+" jk is escape.
+inoremap jk <esc>
+" }}}
+"""""""""""""""""""""""""
+" Gundo
+"""""""""""""""""""""""""
+" {{{
+" Toggle gundo.
+nnoremap <leader>u :GundoToggle<CR>
+" }}}
+"""""""""""""""""""""""""
+" NerdTree
+"""""""""""""""""""""""""
+" {{{
+nnoremap <leader>w :NERDTree<CR>
+" }}}
+"""""""""""""""""""""""""
+" Ag
+"""""""""""""""""""""""""
+" {{{
+nnoremap <leader>a :Ag
+" }}}
+"""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""
+" {{{
+" Order matching files from top to bottom.
+let g:ctrlp_match_window = 'bottom,order:ttb'
+" Always open files in new buffers.
+let g:ctrlp_switch_buffer = 0
+" Lets CtrlP view the vim current directory change.
+let g:ctrlp_working_path_mode = 0
+" Use external command ag to find files.
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" }}}
+"""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""
+" {{{
+nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
+" }}}
+"""""""""""""""""""""""""
+" Airline
+"""""""""""""""""""""""""
+"{{{
+set laststatus=2 
+set encoding=utf-8 " The encoding of the vim-specific characters.
+set t_Co=256 " Number of colors.
+" Enable vim-airline
+let g:airline#extensions#tabline#enabled=1
+" Enable powerline fonts and symbols in airline.
+let g:airline_powerline_fonts=1
+"}}}
+"""""""""""""""""""""""""
+" Modelines
+"""""""""""""""""""""""""
+" Tells Vim to set the foldmethod to be marker and the fold level to be zero.
+" MUST BE LAST!
+" vim:foldmethod=marker:foldlevel=0
