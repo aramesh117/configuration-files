@@ -35,6 +35,9 @@ Plugin 'bling/vim-airline'
 
 " Syntastic
 Plugin 'Syntastic'
+
+" Vim-Scala
+Plugin 'derekwyatt/vim-scala'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -144,6 +147,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 """""""""""""""""""""""""
 " {{{
 nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
+let g:syntastic_scala_checkers = ['scalac', 'scalastyle', 'fsc']
 " }}}
 """""""""""""""""""""""""
 " Airline
@@ -156,6 +160,16 @@ set t_Co=256 " Number of colors.
 let g:airline#extensions#tabline#enabled=1
 " Enable powerline fonts and symbols in airline.
 let g:airline_powerline_fonts=1
+"}}}
+"""""""""""""""""""""""""
+" Splits
+"""""""""""""""""""""""""
+"{{{
+" Map the <C-w>(dir) -> <C-dir> for navigating windows.
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
 "}}}
 """""""""""""""""""""""""
 " Modelines
