@@ -42,6 +42,11 @@ Plugin 'derekwyatt/vim-scala'
 " Fugitive
 Plugin 'fugitive.vim'
 
+" Linediff
+Plugin 'linediff.vim'
+
+" hdevtools
+Bundle 'bitc/vim-hdevtools'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -152,6 +157,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " {{{
 nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 let g:syntastic_scala_checkers = ['scalac', 'scalastyle', 'fsc']
+nnoremap en :lnext<CR>
+nnoremap eN :lprevious<CR>
+nnoremap ec :lclose<CR>
 " }}}
 """""""""""""""""""""""""
 " Airline
@@ -164,7 +172,7 @@ set t_Co=256 " Number of colors.
 let g:airline#extensions#tabline#enabled=1
 " Enable powerline fonts and symbols in airline.
 let g:airline_powerline_fonts=1
-let g:airline_theme='murmur'
+let g:airline_theme='kalisi'
 "}}}
 """""""""""""""""""""""""
 " Splits
