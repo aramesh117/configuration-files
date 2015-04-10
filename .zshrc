@@ -116,6 +116,7 @@ else
         TERM=rxvt-256color
     fi
 fi
+stty -ixon
 #xset r rate 200 60
 
 cd $CGIT

@@ -45,8 +45,8 @@ Plugin 'fugitive.vim'
 " Linediff
 Plugin 'linediff.vim'
 
-" hdevtools
-Bundle 'bitc/vim-hdevtools'
+" Vim2Hs
+Plugin 'dag/vim2hs'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -72,6 +72,12 @@ set tabstop=4 " The number of spaces that <Tab> represents visually.
 set softtabstop=4 " The number of spaces <Tab> when editing.
 set expandtab " Whether to expand a <Tab> into spaces while editing.
 " }}}
+""""""""""""""""""""""""""
+" Files
+""""""""""""""""""""""""""
+"{{{
+nnoremap <leader>s :w<CR>
+"}}}
 """"""""""""""""""""""""""
 " UI
 """"""""""""""""""""""""""
@@ -157,6 +163,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " {{{
 nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 let g:syntastic_scala_checkers = ['scalac', 'scalastyle', 'fsc']
+let g:syntastic_debug = 3
 nnoremap en :lnext<CR>
 nnoremap eN :lprevious<CR>
 nnoremap ec :lclose<CR>
