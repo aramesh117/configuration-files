@@ -47,6 +47,13 @@ Plugin 'linediff.vim'
 
 " Vim2Hs
 Plugin 'dag/vim2hs'
+
+" Neocomplcache
+Plugin 'neocomplcache'
+
+" Neco-GHC
+Plugin 'eagletmt/neco-ghc'
+
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -169,6 +176,12 @@ nnoremap eN :lprevious<CR>
 nnoremap ec :lclose<CR>
 " }}}
 """""""""""""""""""""""""
+" Autocompletion
+"""""""""""""""""""""""""
+"{{{
+set omnifunc=syntaxcomplete#Complete
+"}}}
+"""""""""""""""""""""""""
 " Airline
 """""""""""""""""""""""""
 "{{{
@@ -191,6 +204,11 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
 "}}}
+"""""""""""""""""""""""""
+" Neco-GHC
+"""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.hs setlocal omnifunc=necoghc#omnifunc
+let g:necoghc_enable_detailed_browse = 1
 """""""""""""""""""""""""
 " Modelines
 """""""""""""""""""""""""
