@@ -54,6 +54,10 @@ Plugin 'neocomplcache'
 " Neco-GHC
 Plugin 'eagletmt/neco-ghc'
 
+" Vim-Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -207,8 +211,21 @@ map <C-h> <C-w>h
 """""""""""""""""""""""""
 " Neco-GHC
 """""""""""""""""""""""""
+"{{{
 autocmd BufNewFile,BufRead *.hs setlocal omnifunc=necoghc#omnifunc
 let g:necoghc_enable_detailed_browse = 1
+"}}}
+"""""""""""""""""""""""""
+" Filetype specific formatting
+"""""""""""""""""""""""""
+"{{{
+autocmd BufNewFile,BufRead *.md set tw=80
+"}}}
+"""""""""""""""""""""""""
+" Editing shortcuts
+"""""""""""""""""""""""""
+"{{{
+"}}}
 """""""""""""""""""""""""
 " Modelines
 """""""""""""""""""""""""
