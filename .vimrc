@@ -87,7 +87,8 @@ set expandtab " Whether to expand a <Tab> into spaces while editing.
 " Files
 """"""""""""""""""""""""""
 "{{{
-nnoremap <leader>s :w<CR>
+nnoremap W :w<CR>
+nnoremap Q :q<CR>
 "}}}
 """"""""""""""""""""""""""
 " UI
