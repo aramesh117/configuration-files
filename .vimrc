@@ -55,8 +55,7 @@ Plugin 'neocomplcache'
 Plugin 'eagletmt/neco-ghc'
 
 " Vim-Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -220,6 +219,7 @@ let g:necoghc_enable_detailed_browse = 1
 " Filetype specific formatting
 """""""""""""""""""""""""
 "{{{
+" Autocmd
 autocmd BufNewFile,BufRead *.md set tw=80
 "}}}
 """""""""""""""""""""""""
