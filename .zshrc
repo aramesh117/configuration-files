@@ -119,4 +119,4 @@ fi
 stty -ixon
 #xset r rate 200 60
 
-cd $CGIT
+cd ~

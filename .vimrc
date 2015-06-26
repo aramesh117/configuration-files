@@ -174,7 +174,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " {{{
 nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 let g:syntastic_scala_checkers = ['scalac', 'scalastyle', 'fsc']
-let g:syntastic_debug = 3
+" let g:syntastic_debug = 3
 nnoremap en :lnext<CR>
 nnoremap eN :lprevious<CR>
 nnoremap ec :lclose<CR>
