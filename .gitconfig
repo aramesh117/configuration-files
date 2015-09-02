@@ -1,0 +1,34 @@
+[user]
+	name = Aaditya Ramesh
+    email = aramesh@conviva.com
+
+[alias] 
+    st = status
+    co = checkout
+    ci = commit --verbose
+    br = branch
+    pr = pull --rebase
+    lg = log --graph --stat
+    lgo = log --oneline
+    df = diff --patience
+    dft = difftool
+    cp = cherry-pick
+    rsh = reset --hard
+    rss = reset --soft
+[push]
+	default = upstream
+[branch]
+	autosetuprebase = always
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[color]
+    ui = true
+[log]
+    date = local
+[merge]
+    renamelimit = 3000
+    tool = meld
+[commit]
+    template = /home/aramesh/.gitmessage

@@ -4,7 +4,7 @@
 " {{{
 set nocompatible " Disable attempts to make vim backwards compatible with vi.
 filetype off " Disable temporarily for Vundle.
-set runtimepath+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " This is the list of plugins.

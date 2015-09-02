@@ -90,8 +90,8 @@ autoload -U compinit && compinit -u
 source ~/.zshrc_settings
 source /etc/zsh_command_not_found
 
-# Bind to vim mode
-bindkey -v
+# Bind to emacs mode
+bindkey -e
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
