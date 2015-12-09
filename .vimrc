@@ -45,18 +45,14 @@ Plugin 'fugitive.vim'
 " Linediff
 Plugin 'linediff.vim'
 
-" Vim2Hs
-Plugin 'dag/vim2hs'
+" Vim Go
+Plugin 'fatih/vim-go'
 
-" Neocomplcache
-Plugin 'neocomplcache'
+" Vim-Hdevtools
+Plugin 'bitc/vim-hdevtools'
 
-" Neco-GHC
-Plugin 'eagletmt/neco-ghc'
-
-" Vim-Markdown
-Plugin 'tpope/vim-markdown'
-
+" Vim Markdown
+Plugin 'plasticboy/vim-markdown'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
@@ -207,13 +203,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
-"}}}
-"""""""""""""""""""""""""
-" Neco-GHC
-"""""""""""""""""""""""""
-"{{{
-autocmd BufNewFile,BufRead *.hs setlocal omnifunc=necoghc#omnifunc
-let g:necoghc_enable_detailed_browse = 1
 "}}}
 """""""""""""""""""""""""
 " Filetype specific formatting

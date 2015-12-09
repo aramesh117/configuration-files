@@ -15,6 +15,7 @@
     cp = cherry-pick
     rsh = reset --hard
     rss = reset --soft
+    rp = rev-parse
 [push]
 	default = upstream
 [branch]
