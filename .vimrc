@@ -205,6 +205,13 @@ map <C-l> <C-w>l
 map <C-h> <C-w>h
 "}}}
 """""""""""""""""""""""""
+" Vim-Hdevtools
+"""""""""""""""""""""""""
+"{{{
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+"}}}
+"""""""""""""""""""""""""
 " Filetype specific formatting
 """""""""""""""""""""""""
 "{{{
