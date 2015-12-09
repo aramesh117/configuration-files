@@ -12,7 +12,7 @@ call vundle#rc()
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " We could also add repositories with a ".git" extension
 Plugin 'scrooloose/nerdtree.git'
