@@ -9,6 +9,7 @@ alias ....='cd ../../../../'
 alias sag='sudo apt-get -q'
 alias sac='sudo apt-cache'
 alias l='lcd'
+alias mplayerl='mplayer -loop 0'
 
 
 function checkmerge() {
