@@ -87,16 +87,24 @@ function usprod() {
     printf "%s.us-west-2.prod.conviva.com" "$1"
 }
 
-function suseast() {
-    ssh `useast $1`
+function susprod() {
+    ssh `usprod $1`
 }
 
-function useast() {
+function eudev1() {
+    printf "%s.eu-west-1.dev1.conviva.com" "$1"
+}
+
+function seudev1() {
+    ssh `eudev1 $1`
+}
+
+function useprod() {
     printf "%s.us-east-1.prod.conviva.com" "$1"
 }
 
-function susprod() {
-    ssh `usprod $1`
+function suseprod() {
+    ssh `useprod $1`
 }
 
 function psgrep() {

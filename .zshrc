@@ -121,3 +121,4 @@ stty -ixon
 
 cd ~
 tmux
+eval "$(jenv init -)"
