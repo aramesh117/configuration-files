@@ -9,7 +9,6 @@ alias ....='cd ../../../../'
 alias sag='sudo apt-get -q'
 alias sac='sudo apt-cache'
 alias l='lcd'
-alias mplayerl='mplayer -loop 0'
 
 
 function checkmerge() {
@@ -120,4 +119,12 @@ function fori() {
     do
         $2
     done
+}
+
+function mplayerl() {
+    mplayer -loop 0 $1/**/*.mp3(N)
+}
+
+function mkfile() {
+    mkdir -p $(dirname "$1") && touch "$1"
 }
