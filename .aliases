@@ -56,6 +56,14 @@ function sjc() {
     printf "%s.sjc1.eng.conviva.com" "$1"
 }
 
+function huseprod() {
+    printf "hulu-%s.us-east-1.prod.conviva.com" "$1"
+}
+
+function shuseprod() {
+    ssh `huseprod $1`
+}
+
 function prod() {
     printf "%s.iad1.prod.conviva.com" "$1"
 }
@@ -128,3 +136,4 @@ function mplayerl() {
 function mkfile() {
     mkdir -p $(dirname "$1") && touch "$1"
 }
+
