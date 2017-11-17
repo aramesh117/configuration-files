@@ -1,5 +1,7 @@
 alias g='git'
 alias v='vim'
+alias vim='nvim'
+alias vi='nvim'
 alias sl='ls'
 alias d='du -sc'
 alias mvn='mvn -T 16'

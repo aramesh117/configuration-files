@@ -1,6 +1,6 @@
 [user]
 	name = Aaditya Ramesh
-    email = aramesh@conviva.com
+    email = aramesh117@fb.com
 
 [alias] 
     st = status
@@ -32,4 +32,4 @@
     renamelimit = 3000
     tool = meld
 [commit]
-    template = /home/aramesh/.gitmessage
+    template = ~/.gitmessage

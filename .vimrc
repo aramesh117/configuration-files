@@ -53,6 +53,9 @@ Plugin 'bitc/vim-hdevtools'
 
 " Vim Markdown
 Plugin 'plasticboy/vim-markdown'
+
+" Vim themes
+Plugin 'vim-airline/vim-airline-themes'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 " }}}
