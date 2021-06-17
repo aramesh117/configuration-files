@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(mvn gitfast opp zsh-syntax-highlighting)
+plugins=(mvn gitfast zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,7 +84,7 @@ source ~/.aliases
 source ~/.vars
 
 # Autojump
-[[ -s /home/aramesh/.autojump/etc/profile.d/autojump.sh ]] && source /home/aramesh/.autojump/etc/profile.d/autojump.sh
+source /usr/share/autojump/autojump.zsh
 autoload -U compinit && compinit -u
 
 source ~/.zshrc_settings
