@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(mvn gitfast zsh-syntax-highlighting)
+plugins=(mvn gitfast zsh-syntax-highlighting command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,11 +84,15 @@ source ~/.aliases
 source ~/.vars
 
 # Autojump
-source /usr/share/autojump/autojump.zsh
+if [[ -f /usr/share/autojump/autojump.zsh ]]; then
+  source /usr/share/autojump/autojump.zsh 
+elif [[ -f /usr/local/share/autojump/autojump.zsh ]]; then
+  source /usr/local/share/autojump/autojump.zsh 
+fi
 autoload -U compinit && compinit -u
 
 source ~/.zshrc_settings
-source /etc/zsh_command_not_found
+[[ -a "/etc/zsh_command_not_found" ]] && . /etc/zsh_command_not_found
 
 # Bind to emacs mode
 bindkey -e
