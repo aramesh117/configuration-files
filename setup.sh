@@ -17,6 +17,7 @@ ln -fs "$SCRIPT_DIR/.tmux.conf" ~/.tmux.conf
 ln -fs "$SCRIPT_DIR/.gitconfig" ~/.gitconfig
 ln -fs "$SCRIPT_DIR/.gitmessage" ~/.gitmessage
 ln -fs "$SCRIPT_DIR/.vimrc" ~/.vimrc
+ln -fs "$SCRIPT_DIR/.gitignore" ~/.gitignore
 
 setup_vim
 
