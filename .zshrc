@@ -36,7 +36,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
- HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(mvn gitfast zsh-syntax-highlighting command-not-found)
+plugins=(mvn gitfast zsh-syntax-highlighting command-not-found aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,9 +64,6 @@ else
   export EDITOR='vim'
 fi
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -84,11 +81,7 @@ source ~/.aliases
 source ~/.vars
 
 # Autojump
-if [[ -f /usr/share/autojump/autojump.zsh ]]; then
-  source /usr/share/autojump/autojump.zsh 
-elif [[ -f /usr/local/share/autojump/autojump.zsh ]]; then
-  source /usr/local/share/autojump/autojump.zsh 
-fi
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 source ~/.zshrc_settings
@@ -123,12 +116,18 @@ fi
 stty -ixon
 #xset r rate 200 60
 
-cd ~
-tmux
 eval "$(jenv init -)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+
+eval "$(starship init zsh)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+[[ :$PATH: == *:$HOME/bin:* ]] || PATH=$HOME/bin:$PATH
+
+## NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
