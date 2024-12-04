@@ -81,13 +81,15 @@ source ~/.aliases
 source ~/.vars
 
 # Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 source ~/.zshrc_settings
 [[ -a "/etc/zsh_command_not_found" ]] && . /etc/zsh_command_not_found
 
 # Bind to emacs mode
+bindkey "[D" backward-word
+bindkey "[C" forward-word
 bindkey -e
 bindkey '^P' up-history
 bindkey '^N' down-history

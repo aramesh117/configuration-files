@@ -1,5 +1,5 @@
 [user]
-	name = Aaditya Ramesh
+    name = Aaditya Ramesh
     email = aaditya_ramesh@apple.com
 
 [alias] 
@@ -17,13 +17,13 @@
     rss = reset --soft
     rp = rev-parse
 [push]
-	default = upstream
+    default = upstream
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [diff]
-	tool = meld
+    tool = meld
 [difftool]
-	prompt = false
+    prompt = false
 [color]
     ui = true
 [log]
